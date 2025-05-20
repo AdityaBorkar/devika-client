@@ -1,0 +1,1 @@
+The websockets will start at `bunx devika start --port 9876`, `bunx devika init`

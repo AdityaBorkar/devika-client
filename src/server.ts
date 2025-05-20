@@ -1,31 +1,32 @@
 import { serve } from 'bun';
+import { handleCommand } from './algorithm';
+import ApiServerRoute from './api/server/route';
 
-const _server = serve({
-	routes: {
-		// Serve index.html for all unmatched routes.
-		// "/*": index,
-
-		'/api/hello': {
-			async GET(_req) {
-				return Response.json({
-					message: 'Hello, world!',
-					method: 'GET',
-				});
-			},
-			async PUT(_req) {
-				return Response.json({
-					message: 'Hello, world!',
-					method: 'PUT',
-				});
-			},
-		},
-	},
-
+const server = serve({
 	development: process.env.NODE_ENV !== 'production' && {
-		// Enable browser hot reloading in development
 		hmr: true,
-
-		// Echo console logs from the browser to the server
 		console: true,
 	},
+	routes: {
+		'/api/server': ApiServerRoute,
+	},
+	websocket: {
+		open() {
+			console.log('[SERVER] WebSocket opened');
+		},
+		close() {
+			// TODO: Stop the NODE SERVER
+			console.log('[SERVER] WebSocket closed');
+		},
+		async message(ws, message) {
+			console.log('[SERVER] Message:', message);
+			// TODO: Exchange files, and database
+			const { command, data } = JSON.parse(message.toString());
+			const result = await handleCommand(command, data, ws);
+			const resultJson = JSON.stringify({ command, result });
+			ws.send(resultJson);
+		},
+	},
 });
+
+console.log(`🚀 Server running at ${server.url}`);
