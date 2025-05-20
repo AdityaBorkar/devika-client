@@ -6,21 +6,27 @@
   "main": "src/index.tsx",
   "module": "src/index.tsx",
   "scripts": {
-    "dev": "bun --hot src/index.tsx",
-    "start": "NODE_ENV=production bun src/index.tsx",
-    "build": "bun run build.ts"
+    "cli": "bun run ./cli/index.ts"
   },
   "dependencies": {
     "@biomejs/biome": "^2.0.0-beta.5",
+    "@types/yargs": "^17.0.33",
+    "arktype": "^2.1.20",
     "bun-plugin-tailwind": "^0.0.15",
+    "chalk": "^5.4.1",
+    "figlet": "^1.8.1",
+    "inquirer": "^12.6.1",
+    "node-fetch": "^3.3.2",
+    "ora": "^8.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "^4.1.7",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@types/bun": "^1.2.13",
     "@types/react": "^19.1.4",
-    "@types/react-dom": "^19.1.5",
-    "@types/bun": "^1.2.13"
+    "@types/react-dom": "^19.1.5"
   },
   "trustedDependencies": [
     "@biomejs/biome"

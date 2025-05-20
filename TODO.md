@@ -1,1 +1,1 @@
-The websockets will start at `bunx devika start --port 9876`, `bunx devika init`
+<!-- the server will call the local instance and ask/give them the details -->

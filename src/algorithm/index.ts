@@ -1,6 +1,6 @@
 import type { ServerWebSocket } from 'bun';
 import { init } from '@/algorithm/commands/init';
-import { onboarding } from '@/algorithm/commands/onboarding';
+import { onboardingWs } from '@/algorithm/commands/onboarding';
 import { start } from '@/algorithm/commands/start';
 import { stop } from '@/algorithm/commands/stop';
 
@@ -12,5 +12,5 @@ export function handleCommand(
 	if (command === 'INIT') return init();
 	if (command === 'STOP') return stop();
 	if (command === 'START') return start();
-	if (command === 'ONBOARDING') return onboarding(data, ws);
+	if (command === 'ONBOARDING') return onboardingWs(data, ws);
 }
