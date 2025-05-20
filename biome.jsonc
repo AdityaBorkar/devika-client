@@ -1,0 +1,91 @@
+// TODO:
+// - core web vitals
+// - configure with editorconfig
+// - TailwindCSS Auto Class Sorting
+// - Integrate with Astro CI/CD on Vercel / SST
+{
+	"$schema": "https://biomejs.dev/schemas/2.0.0-beta.1/schema.json",
+	// "assist": {
+	// 	"actions": {
+	// 		"source": {
+	// 			"organizeImports": {
+	// 				"level": "on",
+	// 				"options": {
+	// 					"groups": [
+	// 						["server-only", "use client", "use server"],
+	// 						":BLANK_LINE:",
+	// 						":URL:",
+	// 						":BLANK_LINE:",
+	// 						[":NODE:", ":BUN:", ":PACKAGE:", ":PACKAGE_WITH_PROTOCOL:"],
+	// 						":BLANK_LINE:",
+	// 						[":ALIAS:", ":PATH:"]
+	// 					]
+	// 				}
+	// 			},
+	// 			"useSortedAttributes": "on",
+	// 			"useSortedKeys": "on"
+	// 		}
+	// 	}
+	// },
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["**", "!**/dist/*", "!**/node_modules/*", "!**/CHANGELOG.md"]
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentWidth": 2
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "always",
+			"trailingCommas": "all"
+		}
+	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"nursery": {
+				"useSortedClasses": {
+					"fix": "safe",
+					"level": "error",
+					"options": {
+						"attributes": ["classList"],
+						"functions": ["clsx", "cva", "tw", "tw.*"]
+					}
+				}
+			},
+			"style": {
+				"noArguments": "error",
+				"noCommaOperator": "error",
+				"noInferrableTypes": "error",
+				"noNonNullAssertion": "error",
+				"noParameterAssign": "error",
+				"noUnusedTemplateLiteral": "error",
+				"noUselessElse": "error",
+				"useAsConstAssertion": "error",
+				"useConst": "error",
+				"useDefaultParameterLast": "error",
+				"useEnumInitializers": "error",
+				"useExponentiationOperator": "error",
+				"useExportType": "error",
+				"useImportType": "error",
+				"useLiteralEnumMembers": "error",
+				"useNodejsImportProtocol": "error",
+				"useNumberNamespace": "error",
+				// "useNumericLiterals": "error",
+				"useSelfClosingElements": "error",
+				"useShorthandFunctionType": "error",
+				"useSingleVarDeclarator": "error",
+				"useTemplate": "error"
+			}
+		}
+	}
+}
